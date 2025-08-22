@@ -1,8 +1,5 @@
-# Sử dụng Tomcat làm base image
-FROM tomcat:9.0
+FROM tomcat:10.1-jdk21
 
-# Xóa các ứng dụng mặc định
-RUN rm -rf /usr/local/tomcat/webapps/*
+COPY EmailList.war /usr/local/tomcat/webapps/ROOT.war
 
-# Copy file WAR vào Tomcat
-COPY WebEmail.war /usr/local/tomcat/webapps/ROOT.war
+EXPOSE 8080
